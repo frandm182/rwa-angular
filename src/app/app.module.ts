@@ -1,18 +1,23 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app/app.component';
+import { CategoriesComponent } from './components/category/categories.component';
 
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategoriesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ CategoryService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
