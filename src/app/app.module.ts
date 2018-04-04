@@ -1,17 +1,12 @@
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule  } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
-
-import { AppComponent } from './components/app/app.component';
-import { CategoriesComponent } from './components/category/categories.component';
-import { QuestionsComponent } from './components/question/questions.component';
-import { TagsComponent } from './components/tag/tags.component';
-
-
-import { CategoryService } from './services/category.service';
-import { QuestionService } from './services/question.service';
-import { TagService } from './services/tag.service';
+import { routes } from './app.route';
+import { AppComponent, CategoriesComponent, QuestionsComponent, TagsComponent } from './components';
+import { CategoryService, QuestionService, TagService } from './services';
 
 
 @NgModule({
@@ -23,7 +18,9 @@ import { TagService } from './services/tag.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [
     CategoryService,
